@@ -32,8 +32,9 @@ Help users encounter a short, authentic Swaminarayan teaching naturally througho
 - `IMPLEMENTATION_PLAN.md`: staged implementation tasks.
 - `TEST_PLAN.md`: manual and automated verification.
 
-## Get started
-Open this folder in VS Code and tell Codex: **"Read AGENTS.md and all referenced docs. Start Phase 0 and Phase 1 of IMPLEMENTATION_PLAN.md, and report any SDK/platform blockers before improvising."**
+## Current build
+
+The companion app, deterministic daily selector, demo catalog, iOS lock and home widget code, and Android home widget code are implemented. An ARM64 Android debug APK builds, and the widget's display, exact tap, preference refresh, and saved offline display were checked on a Pixel 9a emulator. Full iPhone widget testing needs Xcode and an iPhone or iOS simulator. The demo catalog contains no scripture and cannot be released as authentic content. See [verification results](docs/VERIFICATION.md) and [release preparation](docs/RELEASE.md).
 
 ## Development build
 
@@ -45,6 +46,12 @@ npm run check
 npx expo prebuild --platform ios --no-install
 npx expo run:ios
 npx expo run:android
+```
+
+The local ARM64 Android debug APK can also be built from `android/` with:
+
+```sh
+ANDROID_HOME="$HOME/Library/Android/sdk" ./gradlew :app:assembleDebug -PreactNativeArchitectures=arm64-v8a
 ```
 
 Widgets need native development builds; Expo Go cannot show them. This repository uses visibly labeled demo entries during development. A production build is blocked until reviewed, licensed content is added to `src/content/approved.json`. See [release preparation](docs/RELEASE.md), [rights research](docs/CONTENT_RIGHTS.md), and [verification results](docs/VERIFICATION.md).
