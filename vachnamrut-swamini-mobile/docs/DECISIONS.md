@@ -6,6 +6,8 @@ The app uses Expo SDK 58, `expo-widgets` 58, and Expo Router. Expo supports iOS 
 
 The local machine has Android Studio and Android SDK but no full Xcode installation. Native iOS build and device verification therefore remain outstanding. TypeScript and config generation can be checked here.
 
+Implementation continued through the remaining code phases so the account- and device-dependent steps can be handled together at the end, as requested by the user. This does not imply the iOS acceptance exit was verified.
+
 Expo Android widgets only support `updateSnapshot`; the generated Android widget disables periodic updates. Exact-passage tap routing is also unsupported by the documented Expo Android widget API. A native Android widget adapter is needed for these MVP requirements.
 
 Sources: [Expo widgets](https://docs.expo.dev/versions/latest/sdk/widgets/), [Android widget updates](https://developer.android.com/develop/ui/views/appwidgets/advanced), [Glance interactions](https://developer.android.com/develop/ui/compose/glance/user-interaction).

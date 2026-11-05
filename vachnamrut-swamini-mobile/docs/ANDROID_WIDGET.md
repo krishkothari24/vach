@@ -4,7 +4,7 @@ The local Expo module in `modules/daily-widget` is automatically linked by Expo.
 
 ## App-side call
 
-The Android adapter should import `modules/daily-widget/src/DailyWidgetModule` and call `setCatalog(json, sourcePreference)` at app start and after language/source changes. The JSON is an array of serializable objects containing `id`, `source`, `title`, `excerpt`, `reference`, and `url`. `url` must be `vachdaily://reading/<encoded-id>`. Use the shared `widgetPropsFor(passage, language)` function to create the last four fields, preserving the same language fallback and short-text policy as iOS:
+The Android adapter in `src/widgets/sync.android.ts` imports `modules/daily-widget/src/DailyWidgetModule` and calls `setCatalog(json, sourcePreference)` at app start and after language/source changes. The JSON is an array of serializable objects containing `id`, `source`, `title`, `excerpt`, `reference`, and `url`. `url` is `vachdaily://reading/<encoded-id>`. It uses the shared `widgetPropsFor(passage, language)` function to preserve the same language fallback and short-text policy as iOS:
 
 ```ts
 const entries = catalog.map((passage) => ({

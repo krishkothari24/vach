@@ -1,5 +1,9 @@
 # Implementation Plan — Vertical Slices
 
+## Current implementation status (2026-11-05)
+
+The Expo app, offline demo catalog, deterministic selector, iOS widget timelines, native Android home widget module, reader, settings, favorites, setup guide, and release guard are implemented in six commits. Automated checks pass. The acceptance exits below still require real device verification; iOS needs full Xcode, and the full Android APK build was interrupted by low disk space. Production content is blocked until written rights and human review are supplied. See `docs/VERIFICATION.md` for exact results.
+
 ## Phase 0 — Validate SDK and iPhone lock-screen feasibility
 - [ ] Initialize Expo/React Native/TypeScript project using a supported SDK.
 - [ ] Confirm current `expo-widgets` config syntax and `accessoryRectangular` support.
