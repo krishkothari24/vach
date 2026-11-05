@@ -3,7 +3,7 @@ import { containerBackground, font, widgetURL } from '@expo/ui/swift-ui/modifier
 import { createWidget } from 'expo-widgets';
 import { PlatformColor } from 'react-native';
 import { approvedCatalog } from '../../content/demo';
-import { widgetPropsFor } from '../shared/presentation';
+import { LOCK_WIDGET_MAX_EXCERPT_LENGTH, widgetPropsFor } from '../shared/presentation';
 
 export type DailyWidgetProps = { title: string; excerpt: string; reference: string; url: string };
 
@@ -14,7 +14,7 @@ const demoProps: DailyWidgetProps = {
   url: 'vachdaily://reading/demo-vachanamrut-1',
 };
 
-const initialProps = approvedCatalog[0] ? widgetPropsFor(approvedCatalog[0], 'both') : demoProps;
+const initialProps = approvedCatalog[0] ? widgetPropsFor(approvedCatalog[0], 'both', LOCK_WIDGET_MAX_EXCERPT_LENGTH) : demoProps;
 
 function DailyLockView(props: DailyWidgetProps) {
   'widget';
