@@ -1,4 +1,5 @@
 import type { Passage, Source } from '../domain/passage';
+import approvedData from './approved.json';
 
 const demoText = '[DEMO TEXT — NOT SCRIPTURE]';
 const demoGujarati = '[ડેમો — શાસ્ત્ર નથી]';
@@ -34,7 +35,7 @@ export const demoCatalog: Passage[] = [
   demoEntry('swamini_vato', 4, 'both'),
 ];
 
-export const approvedCatalog: Passage[] = [];
+export const approvedCatalog: Passage[] = approvedData as Passage[];
 
 export function activeCatalog(development: boolean): Passage[] {
   return development ? demoCatalog : approvedCatalog;

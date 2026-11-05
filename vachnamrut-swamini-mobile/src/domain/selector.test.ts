@@ -1,6 +1,6 @@
 import { describe, expect, it } from 'vitest';
 import { demoCatalog } from '../content/demo';
-import { availableText, validateCatalog } from './passage';
+import { availableText, isPublishable, validateCatalog } from './passage';
 import { civilDayOrdinal, localDateKey, nextLocalMidnight, selectDailyPassage, upcomingSelections } from './selector';
 
 describe('content validation', () => {
@@ -13,6 +13,12 @@ describe('content validation', () => {
     const englishOnly = demoCatalog[1];
     expect(availableText(englishOnly, 'gu')).toEqual({ en: englishOnly.text.en, fallback: true });
     expect(availableText(englishOnly, 'en')).toEqual({ en: englishOnly.text.en, fallback: false });
+  });
+
+  it('requires edition, rights record, and full-context path for publication', () => {
+    const candidate = { ...demoCatalog[0], isDemo: false, reviewed: true, longText: undefined, rights: { status: 'approved' as const, attribution: 'Publisher', licenseNote: 'Written permission record' }, reference: { ...demoCatalog[0].reference, edition: 'Approved edition' } };
+    expect(isPublishable(candidate)).toBe(false);
+    expect(isPublishable({ ...candidate, sourceUrl: 'https://example.org/authorized-reading' })).toBe(true);
   });
 });
 

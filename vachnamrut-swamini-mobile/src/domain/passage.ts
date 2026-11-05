@@ -88,7 +88,9 @@ export function validateCatalog(values: unknown): string[] {
 }
 
 export function isPublishable(passage: Passage): boolean {
-  return passage.reviewed && passage.rights.status === 'approved' && passage.isDemo !== true;
+  return passage.reviewed && passage.rights.status === 'approved' && passage.isDemo !== true
+    && nonempty(passage.reference.edition) && nonempty(passage.rights.licenseNote)
+    && (nonempty(passage.longText?.en) || nonempty(passage.longText?.gu) || nonempty(passage.sourceUrl));
 }
 
 export function sourceLabel(source: Source, language: Language): string {

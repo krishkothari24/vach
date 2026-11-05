@@ -2,15 +2,19 @@ import { Text, VStack } from '@expo/ui/swift-ui';
 import { containerBackground, font, widgetURL } from '@expo/ui/swift-ui/modifiers';
 import { createWidget } from 'expo-widgets';
 import { PlatformColor } from 'react-native';
+import { approvedCatalog } from '../../content/demo';
+import { widgetPropsFor } from '../shared/presentation';
 
 export type DailyWidgetProps = { title: string; excerpt: string; reference: string; url: string };
 
-const initialProps: DailyWidgetProps = {
+const demoProps: DailyWidgetProps = {
   title: '[DEMO] Daily teaching',
   excerpt: '[DEMO TEXT — NOT SCRIPTURE]',
   reference: 'Demo Vachanamrut Reference',
   url: 'vachdaily://reading/demo-vachanamrut-1',
 };
+
+const initialProps = approvedCatalog[0] ? widgetPropsFor(approvedCatalog[0], 'both') : demoProps;
 
 function DailyLockView(props: DailyWidgetProps) {
   'widget';

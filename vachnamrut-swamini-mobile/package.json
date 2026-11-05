@@ -12,6 +12,7 @@
     "lint": "eslint .",
     "test": "vitest run",
     "validate:content": "tsx scripts/validate-content.ts",
+    "validate:release": "tsx scripts/validate-content.ts --release",
     "check": "npm run typecheck && npm run lint && npm run test && npm run validate:content"
   },
   "dependencies": {

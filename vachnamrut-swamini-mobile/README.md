@@ -35,4 +35,16 @@ Help users encounter a short, authentic Swaminarayan teaching naturally througho
 ## Get started
 Open this folder in VS Code and tell Codex: **"Read AGENTS.md and all referenced docs. Start Phase 0 and Phase 1 of IMPLEMENTATION_PLAN.md, and report any SDK/platform blockers before improvising."**
 
-No source code is included yet: these are the implementation specifications.
+## Development build
+
+The Expo SDK 58 app is in this folder. Use Node 22 or another SDK-supported Node release.
+
+```sh
+npm ci
+npm run check
+npx expo prebuild --platform ios --no-install
+npx expo run:ios
+npx expo run:android
+```
+
+Widgets need native development builds; Expo Go cannot show them. This repository uses visibly labeled demo entries during development. A production build is blocked until reviewed, licensed content is added to `src/content/approved.json`. See [release preparation](docs/RELEASE.md), [rights research](docs/CONTENT_RIGHTS.md), and [verification results](docs/VERIFICATION.md).

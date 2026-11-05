@@ -3,13 +3,17 @@ import { containerBackground, font, widgetURL } from '@expo/ui/swift-ui/modifier
 import { createWidget } from 'expo-widgets';
 import { PlatformColor } from 'react-native';
 import type { DailyWidgetProps } from './DailyLock';
+import { approvedCatalog } from '../../content/demo';
+import { widgetPropsFor } from '../shared/presentation';
 
-const initialProps: DailyWidgetProps = {
+const demoProps: DailyWidgetProps = {
   title: '[DEMO] Daily teaching',
   excerpt: '[DEMO TEXT — NOT SCRIPTURE]',
   reference: 'Demo Vachanamrut Reference',
   url: 'vachdaily://reading/demo-vachanamrut-1',
 };
+
+const initialProps = approvedCatalog[0] ? widgetPropsFor(approvedCatalog[0], 'both') : demoProps;
 
 function DailyHomeView(props: DailyWidgetProps) {
   'widget';
