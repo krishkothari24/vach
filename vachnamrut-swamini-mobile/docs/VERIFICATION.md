@@ -4,7 +4,7 @@ Date: 2026-11-05. This record distinguishes code/build checks from device result
 
 | Check | Result |
 | --- | --- |
-| TypeScript, ESLint, unit tests, demo content validation | Passed (`npm run check`, 10 tests). |
+| TypeScript, ESLint, unit tests, demo content validation | Passed (`npm run check`, 12 tests). Also passed under `TZ=Pacific/Auckland`. |
 | SDK dependency alignment | Passed (`npx expo install --check`). |
 | iOS native project generation | Passed (`npx expo prebuild --platform ios --no-install`); generated `DailyLock.swift` declares `.accessoryRectangular` and `DailyHome.swift` declares `.systemMedium`. |
 | iOS JS bundle | Passed (`npx expo export --platform ios`). |

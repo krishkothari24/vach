@@ -1,12 +1,16 @@
 import { describe, expect, it } from 'vitest';
 import { demoCatalog } from '../content/demo';
-import { availableText, isPublishable, validateCatalog } from './passage';
+import { availableText, isPublishable, validateCatalog, validatePassage } from './passage';
 import { civilDayOrdinal, localDateKey, nextLocalMidnight, selectDailyPassage, upcomingSelections } from './selector';
 
 describe('content validation', () => {
   it('accepts labeled demo entries and rejects duplicate IDs', () => {
     expect(validateCatalog(demoCatalog)).toEqual([]);
     expect(validateCatalog([demoCatalog[0], demoCatalog[0]])).toContain(`[1] duplicate id ${demoCatalog[0].id}`);
+  });
+
+  it('rejects IDs that would sort differently or complicate widget links', () => {
+    expect(validatePassage({ ...demoCatalog[0], id: 'Vachanamrut 1' })).toContain('id must use lowercase ASCII letters, digits, colon, underscore, or hyphen');
   });
 
   it('falls back only when the selected language is absent', () => {
@@ -27,6 +31,13 @@ describe('daily selection', () => {
     const day = new Date(2026, 10, 5, 22);
     expect(selectDailyPassage(demoCatalog, day, 'both')?.id).toBe(selectDailyPassage([...demoCatalog].reverse(), day, 'both')?.id);
     expect(selectDailyPassage(demoCatalog, day, 'both')?.id).toBe(selectDailyPassage(demoCatalog, new Date(2026, 10, 5, 1), 'both')?.id);
+  });
+
+  it('uses character order for stable IDs, matching Android selection', () => {
+    const catalog = ['a-2', 'a_1', 'a:1'].map((id) => ({ ...demoCatalog[0], id }));
+    const date = new Date(2026, 10, 5);
+    const ordered = ['a-2', 'a:1', 'a_1'];
+    expect(selectDailyPassage(catalog, date, 'vachanamrut')?.id).toBe(ordered[((civilDayOrdinal(date) % ordered.length) + ordered.length) % ordered.length]);
   });
 
   it('alternates sources and cycles within each source without repeats', () => {

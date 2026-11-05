@@ -42,6 +42,7 @@ export function validatePassage(value: unknown): string[] {
   const errors: string[] = [];
   if (!isRecord(value)) return ['Passage must be an object'];
   if (!nonempty(value.id)) errors.push('id is required');
+  else if (!/^[a-z0-9][a-z0-9:_-]*$/.test(value.id)) errors.push('id must use lowercase ASCII letters, digits, colon, underscore, or hyphen');
   if (!sources.includes(value.source as Source)) errors.push('source is invalid');
   if (!isRecord(value.reference)) errors.push('reference is required');
   else {

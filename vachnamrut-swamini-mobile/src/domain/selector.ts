@@ -15,7 +15,7 @@ function mod(number: number, divisor: number): number {
 }
 
 function sourceEntries(catalog: readonly Passage[], source: Source): Passage[] {
-  return catalog.filter((passage) => passage.source === source).sort((a, b) => a.id.localeCompare(b.id));
+  return catalog.filter((passage) => passage.source === source).sort((a, b) => a.id < b.id ? -1 : a.id > b.id ? 1 : 0);
 }
 
 export function selectDailyPassage(catalog: readonly Passage[], date: Date, preference: SourcePreference): Passage | null {
