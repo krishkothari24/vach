@@ -9,6 +9,8 @@
 - [ ] Confirm Gujarati shaping, large fonts, light/dark modes, and airplane mode on real devices.
 - [ ] Finalize app name, bundle IDs, store descriptions, screenshots, and privacy disclosures. Current name and IDs identify a demo build; the production config guard rejects them.
 
+Drafts for review: `docs/PRIVACY_DRAFT.md` and `docs/STORE_COPY_DRAFT.md`. They describe intended release behavior and must be checked against final signed binaries and licensed content before publication.
+
 ## Account-dependent final steps
 
 - [ ] Obtain rights from the chosen publisher or copyright holder and arrange human review of passages.
