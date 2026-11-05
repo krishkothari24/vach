@@ -1,0 +1,36 @@
+{
+  "expo": {
+    "name": "Vach Daily Demo",
+    "slug": "vach-daily",
+    "scheme": "vachdaily",
+    "version": "0.1.0",
+    "orientation": "portrait",
+    "userInterfaceStyle": "automatic",
+    "icon": "./assets/images/icon.png",
+    "ios": { "bundleIdentifier": "org.vachdaily.demo", "supportsTablet": true },
+    "android": { "package": "org.vachdaily.demo" },
+    "plugins": [
+      "expo-router",
+      ["expo-widgets", {
+        "enableAndroid": false,
+        "widgets": [
+          {
+            "name": "DailyLock",
+            "displayName": "Daily teaching (Demo)",
+            "description": "A demo daily teaching on your Lock Screen",
+            "ios": { "supportedFamilies": ["accessoryRectangular"], "initialLayout": "./src/widgets/ios/DailyLock.tsx" },
+            "android": null
+          },
+          {
+            "name": "DailyHome",
+            "displayName": "Daily teaching (Demo)",
+            "description": "A demo daily teaching on your Home Screen",
+            "ios": { "supportedFamilies": ["systemMedium"], "initialLayout": "./src/widgets/ios/DailyHome.tsx" },
+            "android": null
+          }
+        ]
+      }]
+    ],
+    "experiments": { "typedRoutes": true }
+  }
+}
