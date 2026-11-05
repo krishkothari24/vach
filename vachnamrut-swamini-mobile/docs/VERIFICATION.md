@@ -17,7 +17,7 @@ Date: 2026-11-05. This record distinguishes code/build checks from device result
 | Android preference refresh | Passed on that emulator: changing source to Swamini Vato repainted the widget immediately with the corresponding demo entry. |
 | Android offline display | Passed on that emulator: the widget continued to display its saved entry with Wi-Fi and mobile data disabled. This does not verify a cold app start without Metro. |
 | Android unattended date rollover | Not verified. The installed provider declares hourly OS-managed updates and date/timezone broadcast handling, but actual background delivery was not observed. |
-| Android generated icon | After the debug build, `expo prebuild` regenerated the native project from the current book icon. The installed APK still used the earlier generated icon; the regenerated icon and widget picker preview have not been rebuilt and installed. |
+| Android generated icon and picker preview | After the emulator test, `expo prebuild` regenerated the native project from the current book icon and the ARM64 debug APK rebuilt successfully with the picker preview text. This refreshed APK has not been installed or visually inspected on the emulator. |
 | iOS native device behavior, accessibility, Gujarati glyphs, DST, timezone and battery conditions on devices | Not run. Domain tests cover civil-day logic only. |
 
 The catalog in this test is explicitly marked demo text. No authentic scripture is included or claimed.
