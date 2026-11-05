@@ -9,3 +9,9 @@ The local machine has Android Studio and Android SDK but no full Xcode installat
 Expo Android widgets only support `updateSnapshot`; the generated Android widget disables periodic updates. Exact-passage tap routing is also unsupported by the documented Expo Android widget API. A native Android widget adapter is needed for these MVP requirements.
 
 Sources: [Expo widgets](https://docs.expo.dev/versions/latest/sdk/widgets/), [Android widget updates](https://developer.android.com/develop/ui/views/appwidgets/advanced), [Glance interactions](https://developer.android.com/develop/ui/compose/glance/user-interaction).
+
+## 2026-11-05 — Demo corpus and daily rotation
+
+Eight fixtures are explicitly labeled as demo content. The production catalog is empty until rights and human review are complete. A local civil-day ordinal selects content, avoiding UTC date shifts and daylight-saving elapsed-hour assumptions. With both sources enabled, the source alternates by civil-day parity; each source cycles through its sorted stable IDs without repetition until exhausted. Language choice changes presentation only, not passage selection.
+
+The release content validator fails while the approved catalog is empty. No fixture is eligible for production display.
