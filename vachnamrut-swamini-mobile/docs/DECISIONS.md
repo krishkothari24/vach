@@ -15,3 +15,7 @@ Sources: [Expo widgets](https://docs.expo.dev/versions/latest/sdk/widgets/), [An
 Eight fixtures are explicitly labeled as demo content. The production catalog is empty until rights and human review are complete. A local civil-day ordinal selects content, avoiding UTC date shifts and daylight-saving elapsed-hour assumptions. With both sources enabled, the source alternates by civil-day parity; each source cycles through its sorted stable IDs without repetition until exhausted. Language choice changes presentation only, not passage selection.
 
 The release content validator fails while the approved catalog is empty. No fixture is eligible for production display.
+
+## 2026-11-05 — Native Android widget
+
+Expo's Android widget implementation does not schedule daily snapshots or expose an exact-passage tap URL, so Android uses a small local Expo module with a native `AppWidgetProvider` and `RemoteViews`. The app passes a serializable offline catalog and source preference to the module. Native code applies the same sorted-ID civil-day cycle as TypeScript, requests OS-managed hourly refresh, and places the exact reading URL in a `PendingIntent` on the widget. The module compiled; an APK build/device test is still required. This is a platform-specific exception to the preferred Expo widget implementation for the two MVP behaviors.

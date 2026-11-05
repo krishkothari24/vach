@@ -1,0 +1,6 @@
+<resources>
+    <color name="daily_widget_background">#211C18</color>
+    <color name="daily_widget_title">#F6EADD</color>
+    <color name="daily_widget_text">#E9DBCD</color>
+    <color name="daily_widget_reference">#CBAA88</color>
+</resources>

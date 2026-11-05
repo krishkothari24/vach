@@ -1,0 +1,7 @@
+<resources>
+    <string name="daily_widget_name">Daily teaching</string>
+    <color name="daily_widget_background">#F5F0E6</color>
+    <color name="daily_widget_title">#30251C</color>
+    <color name="daily_widget_text">#45372C</color>
+    <color name="daily_widget_reference">#815D3D</color>
+</resources>
