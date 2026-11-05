@@ -16,7 +16,7 @@ function DailyHomeView(props: DailyWidgetProps) {
   return (
     <VStack modifiers={[containerBackground(PlatformColor('systemBackground'), 'widget'), widgetURL(props.url)]}>
       <Text modifiers={[font({ weight: 'bold', size: 17 })]}>{props.title}</Text>
-      <Text modifiers={[font({ size: 15 })]}>{props.excerpt}</Text>
+      {props.excerpt ? <Text modifiers={[font({ size: 15 })]}>{props.excerpt}</Text> : null}
       <Text modifiers={[font({ size: 12 })]}>{props.reference}</Text>
     </VStack>
   );

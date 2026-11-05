@@ -1,14 +1,27 @@
 import { Link } from 'expo-router';
+import { useEffect } from 'react';
 import { StyleSheet, Text, View } from 'react-native';
+import { activeCatalog } from '../content/demo';
+import { availableText } from '../domain/passage';
+import { selectDailyPassage } from '../domain/selector';
+import { syncWidgets } from '../widgets/sync';
 
 export default function TodayScreen() {
+  const catalog = activeCatalog(__DEV__);
+  const passage = selectDailyPassage(catalog, new Date(), 'both');
+  useEffect(() => { syncWidgets(catalog, 'both', 'both'); }, [catalog]);
+  if (!passage) {
+    return <View style={styles.container}><Text style={styles.title}>Content is being prepared</Text><Text style={styles.body}>Reviewed, licensed readings will appear here when available.</Text></View>;
+  }
+  const text = availableText(passage, 'both');
   return (
     <View style={styles.container}>
       <Text style={styles.eyebrow}>VACH DAILY · DEMO</Text>
       <Text style={styles.title}>A daily moment of reflection</Text>
-      <Text style={styles.notice}>[DEMO TEXT — NOT SCRIPTURE]</Text>
-      <Text style={styles.body}>The iPhone lock-screen widget is the first build milestone.</Text>
-      <Link href="/reading/demo-vachanamrut-1" style={styles.link}>Open demo reading</Link>
+      <Text style={styles.notice}>{passage.reference.displayEnglish}</Text>
+      {text.en ? <Text style={styles.body}>{text.en}</Text> : null}
+      {text.gu ? <Text style={styles.body}>{text.gu}</Text> : null}
+      <Link href={{ pathname: '/reading/[id]', params: { id: passage.id } }} style={styles.link}>Read context →</Link>
     </View>
   );
 }

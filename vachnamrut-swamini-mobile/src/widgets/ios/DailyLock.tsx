@@ -16,8 +16,9 @@ function DailyLockView(props: DailyWidgetProps) {
   'widget';
   return (
     <VStack modifiers={[containerBackground(PlatformColor('systemBackground'), 'widget'), widgetURL(props.url)]}>
-      <Text modifiers={[font({ weight: 'bold', size: 14 })]}>{props.title}</Text>
-      <Text modifiers={[font({ size: 12 })]}>{props.reference}</Text>
+      <Text modifiers={[font({ weight: 'bold', size: 13 })]}>{props.title}</Text>
+      {props.excerpt ? <Text modifiers={[font({ size: 11 })]}>{props.excerpt}</Text> : null}
+      <Text modifiers={[font({ size: 10 })]}>{props.reference}</Text>
     </VStack>
   );
 }
