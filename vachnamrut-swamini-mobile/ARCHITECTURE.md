@@ -83,7 +83,7 @@ Do not include pending/unreviewed passages in production widget content.
 - Ideally implement a documented seeded permutation/cycle to avoid repeated items until corpus exhausted.
 - With both scriptures selected, use deterministic alternation by day and choose within each catalog.
 - Persist last shown ID if necessary for continuity; provide sensible behavior for timezone changes and daylight saving time.
-- Precompute 14–30 days of entries for iOS timelines; regenerate on settings changes and app resume. Do not assume iOS honors precise midnight changes.
+- Precompute a calendar year of daily entries for iOS timelines; regenerate on settings changes and app resume. Expo's current WidgetKit provider rereads the stored timeline at its end, so a short static timeline would repeat its last entry after the app stays unopened. Do not assume iOS honors precise midnight changes.
 - Keep localization selection separate from passage selection. Missing language should gracefully fall back or use the source reference.
 
 ## Deep links and interaction

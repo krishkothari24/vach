@@ -20,6 +20,8 @@ Catalog IDs use lowercase ASCII characters and character-order sorting so JavaSc
 
 The release content validator fails while the approved catalog is empty. No fixture is eligible for production display.
 
+The iOS adapter prepares 367 entries (today plus 366 future local midnights), covering at least one full calendar year even across leap day. Expo's WidgetKit provider stores and rereads the supplied timeline with an `atEnd` policy; it does not recompute the daily selection from the catalog by itself. App resume and preference changes replace the timeline. Device behavior and very long periods without opening the app remain unverified.
+
 ## 2026-11-05 — Native Android widget
 
 Expo's Android widget implementation does not schedule daily snapshots or expose an exact-passage tap URL, so Android uses a small local Expo module with a native `AppWidgetProvider` and `RemoteViews`. The app passes a serializable offline catalog and source preference to the module. Native code applies the same sorted-ID civil-day cycle as TypeScript, requests OS-managed hourly refresh, and places the exact reading URL in a `PendingIntent` on the widget. The module and an ARM64 debug APK compiled, and the widget was installed on a Pixel 9a API 35 emulator. Display, exact tap, source refresh, and timezone-triggered selection passed there. A simulated natural midnight did not repaint within about one minute; actual OS-managed hourly delivery still needs longer device testing. This is a platform-specific exception to the preferred Expo widget implementation for the two MVP behaviors.

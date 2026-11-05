@@ -60,4 +60,13 @@ describe('daily selection', () => {
     expect(civilDayOrdinal(after) - civilDayOrdinal(before)).toBe(1);
     expect(after.getHours()).toBe(0);
   });
+
+  it('can schedule a calendar year of local midnights across leap day', () => {
+    const timeline = upcomingSelections(demoCatalog, new Date(2027, 2, 1, 9), 'both', 367);
+    expect(timeline).toHaveLength(367);
+    expect(localDateKey(timeline[0].date)).toBe('2027-03-01');
+    expect(localDateKey(timeline[365].date)).toBe('2028-02-29');
+    expect(localDateKey(timeline[366].date)).toBe('2028-03-01');
+    expect(timeline.slice(1).every(({ date }) => date.getHours() === 0)).toBe(true);
+  });
 });
