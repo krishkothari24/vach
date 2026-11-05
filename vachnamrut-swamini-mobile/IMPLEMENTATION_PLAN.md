@@ -2,7 +2,7 @@
 
 ## Current implementation status (2026-11-05)
 
-The Expo app, offline demo catalog, deterministic selector, iOS widget timelines, native Android home widget module, reader, settings, favorites, setup guide, and release guard are implemented in six commits. Automated checks pass. The acceptance exits below still require real device verification; iOS needs full Xcode, and the full Android APK build was interrupted by low disk space. Production content is blocked until written rights and human review are supplied. See `docs/VERIFICATION.md` for exact results.
+The Expo app, offline demo catalog, deterministic selector, iOS widget timelines, native Android home widget module, reader, settings, favorites, setup guide, and release guard are implemented. Automated checks pass. An ARM64 Android debug APK installed on a Pixel 9a emulator; widget display, exact tap, preference refresh, and offline display passed. The iPhone widget still needs full Xcode and device verification. Production content requires written rights and human review. See `docs/VERIFICATION.md` for exact results.
 
 ## Phase 0 — Validate SDK and iPhone lock-screen feasibility
 - [ ] Initialize Expo/React Native/TypeScript project using a supported SDK.

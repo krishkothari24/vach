@@ -12,8 +12,12 @@ Date: 2026-11-05. This record distinguishes code/build checks from device result
 | Production content gate | Passed as intended: `VACH_RELEASE=1 npx expo config --type public` exits with a release-blocking error. |
 | iPhone widget installation, rendering, tap, timeline behavior | Not run: full Xcode is absent on this machine. |
 | Android native widget module | Passed `:daily-widget:compileDebugKotlin`; Expo autolinking and Android JS bundle passed. |
-| Full Android debug APK | Not completed. `:app:assembleDebug` was interrupted when disk free space fell below 500 MB. The build-generated NDK version was removed afterward; about 3.9 GB was free. |
-| Android widget installation, exact tap, unattended refresh | Not run on a device or emulator. |
-| Offline, accessibility, Gujarati glyphs, DST, timezone and battery conditions on devices | Not run. Domain tests cover civil-day logic only. |
+| Android debug APK | Passed `:app:assembleDebug -PreactNativeArchitectures=arm64-v8a` on the Android 35 toolchain. Installed the APK on a Pixel 9a API 35 emulator. This is an ARM64 debug build, not a release or all-ABI build. |
+| Android home widget and exact tap | Passed on that emulator: added the widget from the launcher, saw the same daily demo entry as Today, and tapped it to open the exact reading. |
+| Android preference refresh | Passed on that emulator: changing source to Swamini Vato repainted the widget immediately with the corresponding demo entry. |
+| Android offline display | Passed on that emulator: the widget continued to display its saved entry with Wi-Fi and mobile data disabled. This does not verify a cold app start without Metro. |
+| Android unattended date rollover | Not verified. The installed provider declares hourly OS-managed updates and date/timezone broadcast handling, but actual background delivery was not observed. |
+| Android generated icon | After the debug build, `expo prebuild` regenerated the native project from the current book icon. The installed APK still used the earlier generated icon; the regenerated icon and widget picker preview have not been rebuilt and installed. |
+| iOS native device behavior, accessibility, Gujarati glyphs, DST, timezone and battery conditions on devices | Not run. Domain tests cover civil-day logic only. |
 
-Do not infer native widget behavior from a successful JS bundle or generated project.
+The catalog in this test is explicitly marked demo text. No authentic scripture is included or claimed.

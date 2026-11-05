@@ -12,6 +12,7 @@
         android:id="@+id/daily_widget_title"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:text="Daily teaching"
         android:textColor="@color/daily_widget_title"
         android:textSize="16sp"
         android:textStyle="bold" />
@@ -29,6 +30,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="4dp"
+        android:text="Open the app to prepare readings"
         android:textColor="@color/daily_widget_reference"
         android:textSize="12sp" />
 </LinearLayout>
