@@ -1,0 +1,37 @@
+name: iOS widget simulator build
+
+on:
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  build:
+    runs-on: macos-26
+    timeout-minutes: 60
+    defaults:
+      run:
+        working-directory: vachnamrut-swamini-mobile
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+          cache: npm
+          cache-dependency-path: vachnamrut-swamini-mobile/package-lock.json
+      - run: npm ci
+      - run: npm run check
+      - run: npx expo prebuild --platform ios --no-install --clean
+      - run: pod install
+        working-directory: vachnamrut-swamini-mobile/ios
+      - name: Build app and widget extension without device signing
+        run: >-
+          xcodebuild
+          -workspace ios/VachDailyDemo.xcworkspace
+          -scheme VachDailyDemo
+          -configuration Debug
+          -destination 'generic/platform=iOS Simulator'
+          -derivedDataPath "$RUNNER_TEMP/vach-derived-data"
+          CODE_SIGNING_ALLOWED=NO
+          build

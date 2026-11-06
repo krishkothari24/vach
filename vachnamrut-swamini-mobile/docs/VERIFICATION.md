@@ -10,7 +10,7 @@ Date: 2026-11-05. This record distinguishes code/build checks from device result
 | iOS JS bundle | Passed (`npx expo export --platform ios`). |
 | Web bundle | Passed (`npx expo export --platform web`). |
 | Production content gate | Passed as intended: `VACH_RELEASE=1 npx expo config --type public` exits with a release-blocking error. |
-| iPhone widget installation, rendering, tap, timeline behavior | Not run: full Xcode is absent on this machine. The adapter submits 367 daily timeline entries and omits lock-screen excerpts over 36 characters rather than truncating them; WidgetKit scheduling, fit, and rendering are not device verified. |
+| iPhone widget installation, rendering, tap, timeline behavior | Not run: full Xcode is absent on this machine. The adapter submits 367 daily timeline entries and omits lock-screen excerpts over 36 characters rather than truncating them; WidgetKit scheduling, fit, and rendering are not device verified. A manual macOS GitHub Actions simulator build workflow is prepared but has not been run. |
 | Android native widget module | Passed `:daily-widget:compileDebugKotlin`; Expo autolinking and Android JS bundle passed. |
 | Android debug APK | Passed `:app:assembleDebug -PreactNativeArchitectures=arm64-v8a` on the Android 35 toolchain. Installed the APK on a Pixel 9a API 35 emulator. This is an ARM64 debug build, not a release or all-ABI build. |
 | Android home widget and exact tap | Passed on that emulator: added the widget from the launcher, saw the same daily demo entry as Today, and tapped it to open the exact reading. |
