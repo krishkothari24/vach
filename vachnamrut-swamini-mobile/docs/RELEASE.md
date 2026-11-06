@@ -7,6 +7,7 @@
 - [ ] Test real iPhone lock-screen and home-screen widgets, including cold-start deep links and 30-day timeline rollover.
 - [ ] Run the manually triggered iOS simulator build workflow or build locally with full Xcode, then follow `docs/IOS_WIDGET.md` on a simulator and physical device.
 - [ ] Test Android widget initial placement, exact tap, unattended daily update, battery restrictions, and launcher variation.
+- [ ] Run the manually triggered Android debug build workflow and install its artifact to verify the final widget picker preview on an emulator or device.
 - [ ] Confirm Gujarati shaping, large fonts, light/dark modes, and airplane mode on real devices.
 - [ ] Finalize app name, bundle IDs, store descriptions, screenshots, and privacy disclosures. Current name and IDs identify a demo build; the production config guard rejects them.
 
