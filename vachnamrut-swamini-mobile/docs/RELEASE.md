@@ -14,6 +14,7 @@ Drafts for review: `docs/PRIVACY_DRAFT.md` and `docs/STORE_COPY_DRAFT.md`. They 
 ## Account-dependent final steps
 
 - [ ] Obtain rights from the chosen publisher or copyright holder and arrange human review of passages.
+- [ ] Use `docs/PERMISSION_REQUEST_DRAFT.md` after selecting exact passages, then retain the written response and human approvals outside the public repo.
 - [ ] Install full Xcode and connect an Apple Developer account for iOS signing, device testing, TestFlight, and App Store submission.
 - [ ] Connect a Google Play developer account for signed Android release and store submission.
 - [ ] Connect an Expo account only if using EAS cloud builds. Local Android development builds need no Expo account.

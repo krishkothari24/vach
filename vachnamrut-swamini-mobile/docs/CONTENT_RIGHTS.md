@@ -9,7 +9,9 @@ As of 2026-11-05, **no scripture text or translation is cleared for redistributi
 | Swamini Vato, Gujarati | [BAPS Gujarati publication](https://www.baps.org/Publications/Books/Swamini-Vato-1176.aspx), 22nd edition, ISBN 978-81-7526-757-2 | Written redistribution permission needed. |
 | Swamini Vato, English | [BAPS English publication](https://www.baps.org/Publications/Books/Swamini-Vato-65.aspx), January 2009, ISBN 81-7526-313-X | Written redistribution permission needed. |
 
-[BAPS terms](https://www.baps.org/Terms-and-Conditions.aspx) restrict copying, reproducing, and distributing site and app content without prior written permission. [Anirdesh's Swamini Vato text](https://www.anirdesh.com/vato/) identifies its English translations as BAPS publications and does not provide a redistribution license. Online availability is not permission to bundle text into an app or widget.
+[BAPS terms](https://www.baps.org/Terms-and-Conditions.aspx) restrict copying, reproducing, and distributing site and app content without prior written permission. The [Aksharpith FAQ](https://magazines.baps.org/FAQ.aspx) also disallows giving away or redistributing free downloads. [Anirdesh's Swamini Vato text](https://www.anirdesh.com/vato/) identifies its English translations as BAPS publications and does not provide a redistribution license. Online availability is not permission to bundle text into an app or widget.
+
+The official [Aksharpith contact page](https://magazines.baps.org/Contact-Us.aspx) is the starting point for a written grant. An unsent, specific request is prepared in `docs/PERMISSION_REQUEST_DRAFT.md`. Historical Gujarati editions might permit an independent public-domain transcription, but no verified scan, edition lineage, and jurisdiction review sufficient for release has been established; modern English translations require separate consideration.
 
 ## Content approval record needed for each entry
 
