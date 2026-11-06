@@ -5,7 +5,8 @@
 - [ ] Replace `src/content/approved.json` with a useful human-reviewed, licensed catalog and keep written permission records outside the public repo.
 - [ ] Run `npm run validate:release`, `npm run check`, native builds, and the full `TEST_PLAN.md` matrix.
 - [ ] Test real iPhone lock-screen and home-screen widgets, including cold-start deep links and 30-day timeline rollover.
-- [ ] Run the manually triggered iOS simulator build workflow or build locally with full Xcode, then follow `docs/IOS_WIDGET.md` on a simulator and physical device.
+- [x] Run the [iOS simulator build workflow](https://github.com/krishkothari24/vach/actions/runs/42169675925) and compile the app and widget extension.
+- [ ] Follow `docs/IOS_WIDGET.md` on a simulator and physical device.
 - [ ] Test Android widget initial placement, exact tap, unattended daily update, battery restrictions, and launcher variation.
 - [x] Run the [Android debug build workflow](https://github.com/krishkothari24/vach/actions/runs/42167354165), inspect the final widget preview resource in its APK, and install the artifact on an emulator.
 - [ ] Confirm the final widget picker preview on screen. The local emulator could not finish this check with the available disk space.

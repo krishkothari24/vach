@@ -1,12 +1,12 @@
 # iPhone widget verification
 
-The generated iOS project contains a WidgetKit extension with `DailyLock` (`accessoryRectangular`) and `DailyHome` (`systemMedium`). It has not been compiled or installed because this Mac has only Xcode Command Line Tools, no full Xcode or iOS simulator runtime. The current Expo SDK 58 requires Xcode 26.4 or newer ([Expo SDK reference](https://docs.expo.dev/versions/latest/)).
+The generated iOS project contains a WidgetKit extension with `DailyLock` (`accessoryRectangular`) and `DailyHome` (`systemMedium`). The app and extension [compiled in GitHub Actions](https://github.com/krishkothari24/vach/actions/runs/42169675925) for an ARM64 iOS Simulator. They have not been installed or visually checked because this Mac has only Xcode Command Line Tools, no full Xcode or iOS simulator runtime. The current Expo SDK 58 requires Xcode 26.4 or newer ([Expo SDK reference](https://docs.expo.dev/versions/latest/)).
 
 Before the app opens, each widget's initial layout asks the user to open the app to prepare readings. Opening the app saves the offline daily timeline, after which the widget shows the selected passage. These initial layouts are deliberately static so Expo's build-time layout registry can evaluate them without importing app data or runtime modules.
 
 ## Native build without signing
 
-The manually triggered GitHub Actions workflow at `.github/workflows/ios-widget-build.yml` runs on a macOS 26 runner with Xcode and CocoaPods, generates the iOS project, and builds the app plus widget extension for a generic simulator with `CODE_SIGNING_ALLOWED=NO`. It has not been run. A successful run would prove native compilation only, not on-screen widget behavior. GitHub's [macOS runner image](https://github.com/actions/runner-images) documents the installed Xcode and CocoaPods versions.
+The manually triggered GitHub Actions workflow at the repository root, `.github/workflows/ios-widget-build.yml`, runs on a macOS 26 runner with Xcode and CocoaPods, generates the iOS project, and builds the app plus widget extension for an ARM64 simulator with `CODE_SIGNING_ALLOWED=NO`. Its [passing run](https://github.com/krishkothari24/vach/actions/runs/42169675925) proves native compilation only, not on-screen widget behavior. GitHub's [macOS runner image](https://github.com/actions/runner-images) documents the installed Xcode and CocoaPods versions.
 
 ## Simulator acceptance check
 
