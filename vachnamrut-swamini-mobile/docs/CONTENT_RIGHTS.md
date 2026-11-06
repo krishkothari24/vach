@@ -22,3 +22,7 @@ The official [Aksharpith contact page](https://magazines.baps.org/Contact-Us.asp
 5. `rights.status: "approved"`, `reviewed: true`, and a useful `rights.licenseNote` only after the above checks.
 
 Add the reviewed entries to `src/content/approved.json`, run `npm run validate:release`, and run the full device test plan before a production build. The working app name also needs final selection and store availability checks; [Ishvar Vaani is an existing app](https://apps.apple.com/in/app/ishvar-vaani/id6760190882).
+
+## Draft web importer
+
+The app owner stated on 2026-11-06 that they have permission for all uses and requested an internet importer. `scripts/import-anirdesh.py` imports a small bilingual sample from Anirdesh into `src/content/imported-draft.json`, preserving direct source URLs and references. The grant text and human passage review have not been supplied, so imported entries stay `rights.status: "pending"` and `reviewed: false`; the release guard remains closed. To refresh the draft, install `scripts/requirements-import.txt` and run `python3 scripts/import-anirdesh.py` from the app directory. Check each excerpt against its source page and document the grant before moving entries into `approved.json`.
